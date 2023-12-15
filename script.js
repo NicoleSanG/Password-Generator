@@ -112,49 +112,54 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
 
   let passwordLength = parseInt(prompt('Please enter password length(between 8 and 128 characters):'));
-  if (isNaN(passwordLength) || passwordLength < 8) {
+  if (isNaN(passwordLength)) {
     alert('Please enter a valid number.');
-    return;
+    return getPasswordOptions();
   }
-  if (isNaN(passwordLength > 128)) {
-    alert('Please, enter a number between 8 and 128.');
+
+  if (passwordLength < 8) {
+    alert('Password length must be at least 8 characters.');
+    return getPasswordOptions();
   }
-  return;
+
+  if (passwordLength > 128) {
+    alert('Password length cannot exceed 128 characters.');
+    return getPasswordOptions;
+  }
+  let includeLowercase = confirm("Would you like to include lowercase letters?");
+  let includeUppercase = confirm("Would you like to include uppercase letter?");
+  let includeNumbers = confirm("Would you like to include any numbers?");
+  let includeSpecialCharacters = confirm("Would you like to include any special characters?");
+
+
+  if (includeLowercase === false &&
+    includeUppercase === false &&
+    includeNumbers === false &&
+    includeSpecialCharacters === false
+  ) {
+    alert("At least 1 character type should be selected, please try again!");
+    return getPasswordOptions();
+
+  }
+  return {
+    passwordLength,
+    includeLowercase,
+    includeUppercase,
+    includeNumbers,
+    includeSpecialCharacters
+  };
 }
-
-let includeLowercase = confirm("Would you like to include lowercase letters?");
-let includeUppercase = confirm("Would you like to include uppercase letter?");
-let includeNumbers = confirm("Would you like to include any numbers?");
-let specialCharacters = confirm("Would you like to include any special characters?");
-
-if (includeLowercase === false &&
-  includeUppercase === false &&
-  includeNumbers === false &&
-  specialCharacters === false
-) {
-  alert("At least 1 character type should be selected, please try again!")
-  getPasswordOptions();
-
-}
-
 
 // Function for getting a random element from an array
 // Need a variable to hold the password as it's being generated
-  // Need a variable to hold the index that's being generated
-  // For loop that loops the number of times that matches the length the user chose
-  // Generate a random number
-  // That number is the index for a character in the mega-array
-  // So then, mega-array[generated-index] is the actual character
-  // Add that character to the password
-  // Once we finish the for loop, return the generated password
-function getRandom(arr) {
-  
-}
+// Need a variable to hold the index that's being generated
+// For loop that loops the number of times that matches the length the user chose
+// Generate a random number
+// That number is the index for a character in the mega-array
+// So then, mega-array[generated-index] is the actual character
+// Add that character to the password
+// Once we finish the for loop, return the generated password
 
-// Function to generate password with user input
-function generatePassword() {
-
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -169,7 +174,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
 
 
 
