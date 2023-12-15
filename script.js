@@ -159,6 +159,13 @@ function getPasswordOptions() {
 // So then, mega-array[generated-index] is the actual character
 // Add that character to the password
 // Once we finish the for loop, return the generated password
+function getRandom(arr) {
+ 
+}
+// Function to generate password with user input
+function generatePassword() {
+  
+}
 
 
 // Get references to the #generate element
