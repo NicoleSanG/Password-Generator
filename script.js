@@ -124,7 +124,7 @@ function getPasswordOptions() {
 
   if (passwordLength > 128) {
     alert('Password length cannot exceed 128 characters.');
-    return getPasswordOptions;
+    return getPasswordOptions();
   }
   let includeLowercase = confirm("Would you like to include lowercase letters?");
   let includeUppercase = confirm("Would you like to include uppercase letter?");
@@ -160,7 +160,8 @@ function getPasswordOptions() {
 // Add that character to the password
 // Once we finish the for loop, return the generated password
 function getRandom(arr) {
- 
+  let randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 // Function to generate password with user input
 function generatePassword() {
