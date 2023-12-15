@@ -89,31 +89,45 @@ var upperCasedCharacters = [
 ];
 
 // Steps the user will need to follow:
-  // Choose their password length between 8 to 128 characters
-  // Choose if they'd like lowercase to be included
-  // Choose if they'd like uppercase included
-  // Choose if they'd like numbers included
-  // Choose if they'd like special characters included
-  // At least one character type should be selected.
+// Choose their password length between 8 to 128 characters
+// Choose if they'd like lowercase to be included
+// Choose if they'd like uppercase included
+// Choose if they'd like numbers included
+// Choose if they'd like special characters included
+// At least one character type should be selected.
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-// Prompt for password length
+  // Prompt for password length
   // At least 8 characters, no more than 128 characters
   // Conditional to check that the number that was entered is in range
   // Prompts store data as strings, so need to parse into a number
   // If the user's input is out of range, either return out of the function or call the function again
-
   // Confirm which character sets to use
   // If the user answers false for all, either return out of the function or call the function again
-  
   // Once they select a character set:
   // Generate a random character for each selected character set
   // Either push selected character sets to a mega-array of all selected characters
   // OR you can keep the arrays separate and generate a random number to select the array and another to select the index
-  
   // Once character sets are selected, move on to generating random characters
-}
+  let passwordLength = parseInt(prompt('Please enter password length(between 8 and 128 characters):'));
+  if (isNaN(passwordLength) || passwordLength < 8) {
+    alert('Please enter a valid number.');
+    return;
+  }
+  if (isNaN(passwordLength > 128)) {
+    alert('Please, enter a number between 8 and 128.')
+  }
+  return;}
+
+
+  let includeLowercase = confirm("Would you like to include lowercase letters? (Click 'OK' for Yes or 'Cancel' for No)");
+  let includeUppercase = confirm("Would you like to include uppercase letter? (Click 'OK' for Yes or 'Cancel' for No)");
+  let includeNumbers = confirm("Would you like to include any numbers? (Click 'OK' for Yes or 'Cancel' for No)");
+  let specialCharacters = confirm("Would you like to include any special characters? (Click 'OK' for Yes or 'Cancel' for No)");
+
+
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -147,10 +161,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
-
-
-
-
