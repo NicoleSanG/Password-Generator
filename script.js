@@ -167,7 +167,7 @@ function getRandom(arr) {
 function generatePassword() {
   let options = getPasswordOptions();
   if (!options) {
-    return '';
+    return getPasswordOptions();
   }
 
   let allCharacters = [];
@@ -186,6 +186,11 @@ function generatePassword() {
   if (options.includeSpecialCharacters) {
     allCharacters = allCharacters.concat(specialCharacters);
   }
+  for (let i = 0; i < options.passwordLength; i++) {
+    let randomCharacter = getRandom(allCharacters);
+    password += randomCharacter;
+  }
+  return password;
 }
 
 
