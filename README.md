@@ -12,7 +12,13 @@ These screenshots shows how the password generator looks:
 
 ![Desktop view](./assets/images/password.png)
 
+Select 'Generate Password' to start. You will be asked to specify the desired length for your password between 8 and 128 characters. It should resemble the following:
 
+![Desktop view](./assets/images/password-prompt.png)
+
+Keep following the on-screen instructions. After you've completed the prompts, you'll see a randomly generated password in the white box on the screen, crafted based on your input.
+
+![Desktop view](./assets/images/new-password.png)
 
 ## License
 MIT License
