@@ -111,10 +111,10 @@ var upperCasedCharacters = [
 // Once character sets are selected, move on to generating random characters
 function getPasswordOptions() {
 
-  let passwordLength = parseInt(prompt('Please enter password length(between 8 and 128 characters):'));
+  let passwordLength = parseInt(prompt('Please enter password length (between 8 and 128 characters):'));
   if (isNaN(passwordLength)) {
     alert('Please enter a valid number.');
-    return getPasswordOptions();
+    return '';
   }
 
   if (passwordLength < 8) {
